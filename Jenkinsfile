@@ -1,5 +1,5 @@
 pipeline {
-  agent (label 'Node_npm')
+  agent {label 'Node_npm'}
     
   stages {
         
@@ -14,3 +14,5 @@ pipeline {
         sh 'npm install'
      }
     } 
+  } 
+}
