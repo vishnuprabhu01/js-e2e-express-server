@@ -3,7 +3,7 @@ pipeline {
     
   stages {
         
-    stage('Git') {
+    stage('source code') {
       steps {
         git 'https://github.com/vishnuprabhu01/js-e2e-express-server.git'
       }
