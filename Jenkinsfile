@@ -13,7 +13,7 @@ pipeline {
       steps {
         script {
           withSonarQubeEnv('SONAR_MAIN')
-        sh 'npm install'
+        sh 'npm install sonar:sonar'
         sh 'npm run build'
         }
         
