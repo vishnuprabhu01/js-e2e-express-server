@@ -9,9 +9,11 @@ pipeline {
       }
     }
      
-    stage('Build') {
+    stage('Build & quality') {
       steps {
+        withSonarQubeEnv('SONAR_MAIN')
         sh 'npm install'
+        sh 'npm run build'
      }
     } 
   } 
