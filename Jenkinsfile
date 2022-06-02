@@ -1,5 +1,5 @@
 pipeline {
-  agent {label 'Node_npm'}
+  agent {label 'mvn_new1'}
   tools {
     nodejs 'nodejs'
     
