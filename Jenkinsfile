@@ -1,5 +1,7 @@
 pipeline {
   agent {label 'Node_npm'}
+  tools {
+    nodejs 'nodejs'
     
   stages {
         
@@ -9,16 +11,28 @@ pipeline {
       }
     }
      
-    stage('Build & quality') {
+    stage('Dependencies & build') {
       steps {
-        script {
-          withSonarQubeEnv('SONAR_MAIN')
-        sh 'npm install sonar:sonar'
+        sh 'npm install'
         sh 'npm run build'
-        }
-        
-     }
+      }
     } 
+    stage('pack') {
+      steps {
+        sh script 'npm pack'
+      }
+    }
+     stage('Test results') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        stage('Sonar Analysis') {
+            steps {
+                sh 'npm run sonar'
+            }
+        }
+      
   } 
 }
 
