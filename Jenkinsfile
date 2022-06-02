@@ -1,8 +1,6 @@
 pipeline {
   agent {label 'mvn_new1'}
-  tools {
-    nodejs 'nodejs'
-    
+     
   stages {
         
     stage('source code') {
